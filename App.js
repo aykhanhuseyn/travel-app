@@ -45,7 +45,7 @@ const Section = ({children, title}) => {
   );
 };
 
-const App = () => {
+const OldApp = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -86,7 +86,7 @@ const App = () => {
   );
 };
 
-const MyApp = () => {
+const App = () => {
   // const isDarkMode = useColorScheme() === 'dark';
 
   // const backgroundColor = isDarkMode ? Colors.darker : Colors.lighter;
@@ -94,8 +94,8 @@ const MyApp = () => {
   return (
     <SafeAreaView style={[styles.safe, styles.flex]}>
       <StatusBar backgroundColor={'red'} translucent />
-      {/* <Home /> */}
-      <Details />
+      <Home />
+      {/* <Details /> */}
     </SafeAreaView>
   );
 };
@@ -107,32 +107,13 @@ const styles = StyleSheet.create({
   safe: {
     paddingTop: 20,
     paddingBottom: 20,
-    backgroundColor: 'red',
   },
-  view: {
-    backgroundColor: 'orange',
-  },
+  view: {},
   text: {
     color: 'black',
     fontSize: 24,
     fontWeight: '700',
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
 });
 
-export default MyApp;
+export default App;
