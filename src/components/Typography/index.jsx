@@ -1,17 +1,29 @@
 import React from 'react';
 import {Text as NativeText} from 'react-native';
-import styles from './styles';
+import {styles, weightStyles, colorStyles, levelStyles} from './styles';
 
-const Title = ({children, weight = 'bold', color = 'black', style}) => (
+const Title = ({
+  children,
+  level = 'h1',
+  weight = 'bold',
+  color = 'black',
+  style,
+}) => (
   <NativeText
-    style={[styles.title, styles.color[color], styles.weight[weight], style]}>
+    style={[
+      styles.title,
+      colorStyles[color],
+      levelStyles[level],
+      weightStyles[weight],
+      style,
+    ]}>
     {children}
   </NativeText>
 );
 
-const Text = ({children, weight, style}) => (
+const Text = ({children, weight = 'regular', color = 'black', style}) => (
   <NativeText
-    style={[styles.text, styles.color.black, styles.weight[weight], style]}>
+    style={[styles.text, colorStyles[color], weightStyles[weight], style]}>
     {children}
   </NativeText>
 );

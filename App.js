@@ -93,7 +93,12 @@ const App = () => {
 
   return (
     <SafeAreaView style={[styles.safe, styles.flex]}>
-      <StatusBar backgroundColor={'red'} translucent />
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="#ffffff00"
+        // translucent
+      />
+
       <Home />
       {/* <Details /> */}
     </SafeAreaView>

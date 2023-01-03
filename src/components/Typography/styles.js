@@ -1,28 +1,54 @@
 import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
   text: {
     fontSize: 20,
   },
-  color: {
-    blue: {
-      color: '#4681A3',
-    },
-    black: {
-      color: '#000000',
-    },
+});
+
+export const colorStyles = StyleSheet.create({
+  blue: {
+    color: '#4681A3',
   },
-  weight: {
-    bold: {
-      fontWeight: '700',
-    },
-    regular: {
-      fontWeight: '400',
-    },
+  black: {
+    color: '#000000',
   },
+  'black-05': {
+    color: 'rgba(0, 0, 0, 0.5)',
+  },
+});
+
+export const weightStyles = StyleSheet.create({
+  bold: {
+    fontWeight: '700',
+  },
+  medium: {
+    fontWeight: '500',
+  },
+  regular: {
+    fontWeight: '400',
+  },
+});
+
+export const levelStyles = StyleSheet.create({
+  h1: {
+    fontSize: 32,
+  },
+  h2: {
+    fontSize: 24,
+  },
+  h3: {
+    fontSize: 20,
+  },
+});
+
+export const typeStyles = StyleSheet.create({
+  primary: {},
+  secondary: {},
+  third: {},
 });
 
 export default styles;
