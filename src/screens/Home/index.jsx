@@ -1,42 +1,29 @@
-import React from 'react';
-import {FlatList, SafeAreaView, View} from 'react-native';
-import {Typography} from '../../components';
-import {Attraction} from '../../components/Attraction';
-import Categories from '../../components/Categories';
-import useCategories from '../../hooks/useCategories';
-import useAttractions from '../../hooks/useAttractions';
+import React, {memo} from 'react';
+import {FlatList, SafeAreaView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {useCategories, useAttractions} from '../../hooks';
+import {Attraction} from '../../components';
+import ListHeader from './ListHeader';
+import NoContent from './NoContent';
 import styles from './styles';
 
 const Home = () => {
+  const navigation = useNavigation();
   const {categories, selectedCategory, changeCategory} = useCategories('All');
   const {attractions} = useAttractions(selectedCategory);
+
   return (
     <SafeAreaView>
       <FlatList
         data={attractions}
         ListHeaderComponent={
-          <>
-            <Typography.Title weight="regular" color="blue">
-              Where do
-            </Typography.Title>
-            <Typography.Title color="blue">you want to go?</Typography.Title>
-
-            <Typography.Title style={styles.label} level="h3">
-              Explore attractions
-            </Typography.Title>
-
-            <Categories
-              value={selectedCategory}
-              categories={categories}
-              onChange={changeCategory}
-            />
-          </>
+          <ListHeader
+            categories={categories}
+            changeCategory={changeCategory}
+            selectedCategory={selectedCategory}
+          />
         }
-        ListEmptyComponent={
-          <Typography.Title style={styles.empty} color="black-05" center>
-            No content found
-          </Typography.Title>
-        }
+        ListEmptyComponent={<NoContent />}
         style={styles.container}
         numColumns={2}
         keyExtractor={item => item.id}
@@ -44,8 +31,9 @@ const Home = () => {
           <Attraction
             name={item.name}
             place={item.city}
+            style={styles.attraction(index)}
             imageURL={item.images[0] ?? null}
-            style={index % 2 ? {marginRight: 0} : {}}
+            onPress={() => navigation.navigate('Details', {item})}
           />
         )}
       />
@@ -53,4 +41,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home);
