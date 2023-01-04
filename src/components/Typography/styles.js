@@ -6,6 +6,14 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+    textAlign: 'auto',
+  },
+  block: {
+    width: '100%',
+  },
+  center: {
+    width: '100%',
+    textAlign: 'center',
   },
 });
 

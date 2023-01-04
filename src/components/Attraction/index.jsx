@@ -1,23 +1,21 @@
 import React from 'react';
-import {FlatList, Image, ScrollView, View} from 'react-native';
+import {Image, View} from 'react-native';
 import Typography from '../Typography';
 import styles from './styles';
+import Location from '../../assets/icons/location.svg';
 
-const Attraction = ({source, title}) => {
+export const Attraction = ({imageURL, name, place, style}) => {
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={{uri: source}} />
+    <View style={[styles.card, style]}>
+      <Image style={styles.image} source={{uri: imageURL}} />
       <View style={styles.details}>
         <Typography.Text weight="medium" style={styles.title}>
-          {title}
+          {name}
         </Typography.Text>
-        <View>
-          <Image
-            style={styles.icon}
-            source={require('../../assets/icons/location.svg')}
-          />
+        <View style={styles.descriptionWrapper}>
+          <Location style={styles.icon} />
           <Typography.Text color="black-05" style={styles.description}>
-            Rome, Italy
+            {place}
           </Typography.Text>
         </View>
       </View>
@@ -25,19 +23,4 @@ const Attraction = ({source, title}) => {
   );
 };
 
-const AttractionList = () => {
-  return (
-    <FlatList
-      style={styles.container}
-      data={[]}
-      renderItem={({item}) => (
-        <Attraction
-          title="Colliseum"
-          source="https://www.history.com/.image/ar_266:100%2Cc_fill%2Ccs_srgb%2Cg_faces:center%2Cq_auto:good%2Cw_2560/MTkwODIxMzcwNDI5NDQ5OTEw/gettyimages-1081719544.webp"
-        />
-      )}
-    />
-  );
-};
-
-export default AttractionList;
+export default Attraction;

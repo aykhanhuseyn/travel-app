@@ -2,9 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 26,
-    display: 'flex',
-    gap: 10,
+    marginBottom: 20,
   },
   category: {
     fontSize: 12,

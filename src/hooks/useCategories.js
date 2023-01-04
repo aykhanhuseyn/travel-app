@@ -1,13 +1,22 @@
 import {useRef, useState} from 'react';
-import {categories} from '../data/categories';
+import categories from '../data/categories.json';
+
+const modifiedCategories = ['All', ...categories].map(value => ({
+  label: value,
+  value,
+}));
 
 const useCategories = defaultValue => {
-  const [category, setCategory] = useState(defaultValue);
+  const [selectedCategory, setSelectedCategory] = useState(defaultValue);
   const change = useRef(value => {
-    setCategory(value);
+    setSelectedCategory(value);
   });
 
-  return {category, categories, changeCategory: change.current};
+  return {
+    selectedCategory,
+    categories: modifiedCategories,
+    changeCategory: change.current,
+  };
 };
 
 export default useCategories;

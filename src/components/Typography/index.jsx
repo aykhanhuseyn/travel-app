@@ -8,22 +8,37 @@ const Title = ({
   weight = 'bold',
   color = 'black',
   style,
+  center = false,
 }) => (
   <NativeText
     style={[
       styles.title,
+      styles.block,
       colorStyles[color],
       levelStyles[level],
       weightStyles[weight],
+      center ? styles.center : {},
       style,
     ]}>
     {children}
   </NativeText>
 );
 
-const Text = ({children, weight = 'regular', color = 'black', style}) => (
+const Text = ({
+  children,
+  weight = 'regular',
+  color = 'black',
+  center,
+  style,
+}) => (
   <NativeText
-    style={[styles.text, colorStyles[color], weightStyles[weight], style]}>
+    style={[
+      styles.text,
+      colorStyles[color],
+      weightStyles[weight],
+      center ? styles.center : {},
+      style,
+    ]}>
     {children}
   </NativeText>
 );

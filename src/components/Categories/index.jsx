@@ -26,8 +26,8 @@ const Category = ({label, value, onPress, selected}) => {
 const CategoryList = ({value, style, onChange, categories = []}) => {
   return (
     <FlatList
-      data={categories}
       horizontal
+      data={categories}
       style={[styles.container, style]}
       showsHorizontalScrollIndicator={false}
       keyExtractor={cat => String(cat.value)}
