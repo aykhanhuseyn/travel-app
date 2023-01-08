@@ -18,6 +18,9 @@ export const styles = StyleSheet.create({
 });
 
 export const colorStyles = StyleSheet.create({
+  white: {
+    color: '#ffffff',
+  },
   blue: {
     color: '#4681A3',
   },

@@ -3,7 +3,15 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const {width} = Dimensions.get('window');
 const sideSpacing = 32;
+const imageSpacing = 20;
 const imageWidth = width - 2 * sideSpacing;
+const footerWith = imageWidth - 2 * imageSpacing;
+export const footerItemCount = 5;
+const footerPadding = 16;
+const footerItemWith = Math.floor(
+  (footerWith - footerItemCount * footerPadding - footerPadding) /
+    footerItemCount,
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -24,30 +32,49 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: 42,
     height: 42,
-    marginHorizontal: 20,
-    marginVertical: 20,
+    marginHorizontal: imageSpacing,
+    marginVertical: imageSpacing,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.white,
-    borderRadius: 21,
+    borderRadius: imageSpacing,
   },
   icon: {
     width: 20,
     height: 20,
     resizeMode: 'contain',
   },
-  imageFooter: {
+  footer: {
     flexDirection: 'row',
-    width: imageWidth - 48,
-    paddingHorizontal: 24,
-    paddingVertical: 8,
-    height: 64,
-    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: footerPadding / 2,
     borderRadius: 16,
+    width: footerWith,
+    marginBottom: 8,
+    marginHorizontal: imageSpacing,
+    backgroundColor: 'rgba(255, 255, 255, 0.35)',
   },
   footerItem: {
-    width: 48,
-    height: 48,
+    width: footerItemWith,
+    height: footerItemWith,
+    borderRadius: 8,
+    marginHorizontal: footerPadding / 2,
+  },
+  footerItemLast: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  footerCover: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
 });
 
